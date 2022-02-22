@@ -1,0 +1,8 @@
+@import "../../../styles/colors.scss";
+
+.mat-card {
+    border-radius: 0.625rem;
+    &.border-color {
+        border: 1px solid $accentColor; 
+    }
+}

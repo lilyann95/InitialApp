@@ -1,1 +1,277 @@
+
+
 /* You can add global styles to this file, and also import other style files */
+
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '@angular/material/theming' as mat-theming;
+@import url('https://fonts.cdnfonts.com/css/avenir');
+@import '~bootstrap/scss/bootstrap';
+@import '../src/styles/colors';
+@import '../src/styles/typography';
+
+// Material
+@include mat.core();
+
+html,
+body {
+  overflow-x: hidden;
+  touch-action: pan-y manipulation;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.main-container {
+  flex: 1 0 auto;
+  display: flex;
+  position: relative;
+  max-width: 100vw;
+}
+
+.main-content {
+  max-width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+$mat-primary-color: (
+    50: #17888a,
+    100: #147779,
+    200: #116768,
+    300: #0f5658,
+    400: #0c4647,
+    500: #093536,
+    600: #0b3334,
+    700: #0e3031,
+    800: #102e2f,
+    900: #132c2c,
+    A100: #22cacd,
+    A200: #1fb9bd,
+    A400: #1da9ac,
+    A700: #1a989b,
+    contrast: (),
+);
+
+$mat-accent-color: (
+    50: #d1facc,
+    100: #c0f9ba,
+    200: #b0f7a8,
+    300: #a0f596,
+    400: #8ff484,
+    500: #7FF272,
+    600: #6ff060,
+    700: #5eef4e,
+    800: #4eed3c,
+    900: #3eeb2a,
+    A100: #e1fcde,
+    A200: #f1fef0,
+    contrast: (),
+);
+$custom-primary: mat.define-palette($mat-primary-color, 500);
+$custom-accent: mat.define-palette($mat-accent-color, 500);
+$custom-warn: mat.define-palette(mat.$red-palette, 500);
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Avenir',
+);
+
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn,
+    ),
+    typography: $custom-typography,
+  )
+);
+
+$custom-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn,
+    ),
+  )
+);
+@include mat.all-component-themes($custom-theme);
+$color-config: mat.get-color-config($custom-theme);
+$primary-palette: map.get($color-config, 'primary');
+$accent-palette: map.get($color-config, 'accent');
+$warn-palette: map.get($color-config, 'warn');
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Avenir';
+}
+
+// override text
+.fs-lg {
+  font-size: 7.5rem !important;
+  letter-spacing: -0.9px;
+  font-family: 'avenir-black' !important;
+  span {
+    font-size: 3.5rem !important;
+  }
+  @include media-breakpoint-between(sm, lg) {
+    font-size: 2.3rem !important;
+    span {
+      font-size: 2rem !important;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 3rem !important;
+    span {
+      font-size: 2.5rem !important;
+    }
+  }
+}
+
+
+//Bootstrap override
+.text-danger {
+    color: $dangerColor !important;
+}
+
+.text-primary {
+    color: $primaryColor !important;
+}
+
+.text-secondary {
+    color: $secondaryColor !important;
+}
+
+.text-accent {
+    color: $accentColor !important;
+}
+
+.bg-primary {
+  background-color: $primaryColor !important;
+}
+.text-gray {
+  color: $nuetral-black-color !important;
+}
+
+
+.title {
+  font-family: 'avenir-heavy';
+  font-size: 2rem;
+  @include media-breakpoint-down(sm) {
+    font-size: 1.625rem;
+  }
+}
+.heavy-font {
+  font-family: 'avenir-heavy';
+}
+.medium-font {
+  font-family: 'avenir-medium';
+}
+.roman-font {
+  font-family: 'avenir-roman';
+}
+a {
+  font-family: 'avenir-medium';
+}
+.fw-bold {
+  font-weight: 900 !important;
+}
+
+.fw-semibold {
+  font-weight: 800 !important;
+}
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+.fs-md {
+  font-size: 1.125rem;
+  font-weight: 500;
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+}
+.w-sm-100 {
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+}
+
+// Custom classes
+.font-weight-semibold {
+    font-weight: 600;
+  }
+  
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.font-48px {
+  font-size: clamp(1.875rem, 4.2vw, 3.125em);
+}
+
+.font-35px {
+  font-size: clamp(1.875rem, 4.2vw, 2.125em);
+}
+
+.font-26px {
+  font-size: clamp(0.875rem, 2.05vw, 1.5rem);
+}
+
+.font-20px {
+  font-size: clamp(0.875rem, 2.05vw, 1.25rem);
+}
+
+.font-13px {
+  font-size: clamp(0.875rem, 2.05vw, 0.25rem);
+}
+
+
+.mat-raised-button,
+.mat-stroked-button {
+  padding: 0.5rem 2.5rem !important;
+  font-size: 1.25rem !important;
+  border-radius: 0.625rem !important;
+  font-weight: 500;
+  &.btn-sm {
+    padding: 0.5rem 1.5rem !important;
+    @include media-breakpoint-down(sm) {
+      padding: 0.2rem 1.5rem !important;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 0.5rem 1.5rem !important;
+    font-weight: 500;
+  }
+}
+
+.mat-raised-button {
+  &.mat-primary {
+    background: linear-gradient(
+      90deg,
+      $primaryColor 0%,
+      $primary-colorBlur 100%
+    );
+  }
+}
+.mat-raised-button {
+  &.mat-accent {
+    background: linear-gradient(
+      90deg,
+      $accentColor 0%,
+      $accent-colorBlur 100%
+    );
+  }
+}
+
+.mat-checkbox-inner-container {
+  border-radius: 0.25em !important;
+  border: rgba(0, 0, 0, 0.25) !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,134 @@
+<form 
+    [formGroup]="registerForm" 
+    (ngSubmit)="onsubmit()" 
+    [ngClass]="{submitted: isSubmitted }"
+>
+    <div class="form-group mb-0 py-5">
+        <div class="row justify-content-center">
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7">
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label class="text-gray">First Name:</mat-label>
+                    <input type="text" matInput formControlName="firstName">
+                    <mat-error *ngIf="registerForm.controls['firstName'].invalid">
+                        <ng-container *ngIf="registerForm.controls['firstName'].errors">
+                            <span *ngIf="registerForm.controls['firstName'].errors['required']">
+                                First name is required
+                            </span>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7">
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label class="text-gray">Last Name:</mat-label>
+                    <input type="text" matInput formControlName="lastName">
+                    <mat-error *ngIf="registerForm.controls['lastName'].invalid">
+                        <ng-container *ngIf="registerForm.controls['lastName'].errors">
+                            <span *ngIf="registerForm.controls['lastName'].errors['required']">
+                                Last name is required
+                            </span>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7">
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label class="text-gray">Phone Contact:</mat-label>
+                    <input type="tel" matInput formControlName="PhoneContact">
+                    <mat-error *ngIf="registerForm.controls['PhoneContact'].invalid">
+                        <ng-container *ngIf="registerForm.controls['PhoneContact'].errors">
+                            <span *ngIf="registerForm.controls['PhoneContact'].errors['required']">
+                                Phone Contact is required
+                            </span>
+                            <span *ngIf="registerForm.controls['PhoneContact'].errors?.['pattern']">
+                                Please enter a valid phone number
+                            </span>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7">
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label class="text-gray">Email:</mat-label>
+                    <input type="email" matInput formControlName="email">
+                    <mat-error *ngIf="registerForm.controls['email'].invalid">
+                        <ng-container *ngIf="registerForm.controls['email'].errors">
+                            <span *ngIf="registerForm.controls['email'].errors['required']">
+                                Email is required
+                            </span>
+                            <span *ngIf="registerForm.controls['email'].errors?.['email']">
+                                Please enter a valid email
+                            </span>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7">
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label class="text-gray">Password:</mat-label>
+                    <input type="password" matInput formControlName="password">
+                    <mat-error *ngIf="registerForm.controls['password'].invalid">
+                        <ng-container *ngIf="registerForm.controls['password'].errors">
+                            <span *ngIf="registerForm.controls['password'].errors['required']">
+                                Password is required
+                            </span>
+                            <span *ngIf="registerForm.controls['password'].errors?.['minlength']">
+                                Password must have 8 characters minimium.
+                            </span> 
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7">
+                <p><mat-checkbox formControlName="terms">I agree to Cryptonite Privacy Policy & Terms</mat-checkbox></p>
+                <!-- <div class="form-check mb-2">
+                    <input 
+                        type="checkbox" 
+                        formControlName="terms" 
+                        class="form-check-input"
+                        id="terms"
+                    >  
+                    <label 
+                        for="terms" 
+                        class="form-check-label font-weight-medium"
+                    >
+                        I agree to Cryptonite Privacy Policy & Terms
+                    </label>
+                </div> -->
+            </div>
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7">
+                <p>
+                    <mat-checkbox formControlName="agreements">
+                    Keep me informed about Cryptonite insights to accelerate my growth
+                    </mat-checkbox>
+                </p>
+                <!-- <div class="form-check mb-4">
+                    <input 
+                        type="checkbox" 
+                        formControlName="agreements" 
+                        class="form-check-input"
+                        id="agreements"
+                    >
+                    <label 
+                        for="agreements" 
+                        class="form-check-label font-weight-medium"
+                    >
+                        Keep me informed about Cryptonite insights to accelerate my growth
+                    </label>
+                </div> -->
+            </div>
+            <div class="col-420px-12 col-10 col-sm-8 col-xl-7 text-center">
+                <button 
+                    mat-raised-button
+                    color="accent"
+                    class="text-gray"
+                    [disabled]="!registerForm.valid"
+                >
+                    Register
+                </button>
+                <!-- <span role="button">No register</span> -->
+            </div>
+        </div>
+    </div>
+</form>
+

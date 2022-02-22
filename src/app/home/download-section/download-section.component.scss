@@ -1,0 +1,40 @@
+@import '../../../styles/colors.scss';
+
+// .download-section {
+    // .download-content {
+    //     margin-top: 30px;
+    //     .mobile-phone {
+    //         margin-bottom: -150px;
+    //     }
+    //     .phones-content {
+    //         margin-top: 160px;
+    //         padding-left: 50px;
+    //     }
+    // }
+    // .download-wave-bottom {
+    //     height: 9em;
+    //     margin-top: -120px;;
+    // }
+    // 
+    // 
+// }
+// @media (max-width: 768px) {
+//     .download-wave-bottom {
+//         margin-top: -100px;
+//     }
+// }
+// @media (min-width: 1150px) {
+//     .download-wave-bottom {
+//         margin-top: -60px !important;
+//     }
+// }
+// @media (min-width: 1750px) {
+//     .download-wave-bottom {
+//         margin-top: -100px !important;
+//     }
+// }
+@media (max-width: 2300px) {
+    .download-wave-bottom {
+        margin-top: -90px !important;
+    }
+}
