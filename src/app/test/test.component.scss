@@ -1,0 +1,22 @@
+::marker {
+  content: url("https://mozorg.cdn.mozilla.net/media/img/favicon.ico") /
+    " MOZILLA: ";
+  //   font-size: 0.1rem;
+  //   color: red;
+}
+.spin {
+  height: 20px;
+  width: 20px;
+  border-top: 3px solid rgb(10, 82, 216);
+  border-radius: 50%;
+  border: 3px solid rgba(10, 82, 216, 0.3);
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

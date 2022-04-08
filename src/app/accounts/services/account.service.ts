@@ -22,7 +22,7 @@ import { Account } from '../models/account.interface';
 })
 
 export class AccountService {
-  // accountsCollection: CollectionReference<Account>;
+  // accountsCollection?: CollectionReference<Account>;
 
   constructor(private firestore: Firestore) {
     // this.accountsCollection = collection(this.firestore, 'accounts');

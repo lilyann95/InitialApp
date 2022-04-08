@@ -5,7 +5,6 @@ import { ConfirmationDialogService } from '../services/confirm-dialog/confirm-di
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditDetailsComponent } from './editDetails/editdetails.component';
 import { AuthService } from '../services/auth.service';
-import { getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-data',
@@ -15,7 +14,6 @@ import { getAuth } from 'firebase/auth';
 
 export class DataComponent implements OnInit {
   @Input() id = '';
-
   userdetails: Account[] = [];
   user!: Account;
   userMsg: any;
@@ -31,6 +29,7 @@ export class DataComponent implements OnInit {
 
   ngOnInit() {
     // const userId = getAuth().currentUser?.uid;
+    // console.log(userId);
     // if(userId){
     //   this.authService.getDataById(userId)?.subscribe({
     //     next: (response) => {
@@ -42,7 +41,6 @@ export class DataComponent implements OnInit {
     //     }
     //   });
     // } 
-    
     
     this.accountService.getData()?.subscribe((res) => {
       this.userdetails = res;

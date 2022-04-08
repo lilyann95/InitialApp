@@ -1,7 +1,7 @@
 <form 
     [formGroup]="registerForm" 
     (ngSubmit)="onsubmit()" 
-    [ngClass]="{submitted: isSubmitted }"
+    *ngIf="!isSubmitted"
 >
     <div class="form-group mb-0 py-5">
         <div class="row justify-content-center">

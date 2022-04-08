@@ -47,10 +47,8 @@ export class RegisterFormComponent {
       this.emailMessage='';
     })
   }
-  
   onsubmit(){
     this.isSubmitted = true;
-    console.log(this.registerForm.value);
     if (this.registerForm.invalid) return;
     this.authService.signUp({
       email: this.registerForm.value.email,
@@ -70,7 +68,7 @@ export class RegisterFormComponent {
       })
     ).subscribe({
       next: () => {
-        // this.isSubmitted = true;
+        this.isSubmitted = false;
         this.registerForm.reset();
         this.snackbar.open(
           'Data stored successfully', 

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeModule } from './home/home.module';
 import { AccountsModule } from './accounts/accounts.module';
+import { TestModule } from './test/test.module';
 import { environment } from 'src/environments/environment';
 import {
   getAnalytics,
@@ -28,15 +29,14 @@ import {
 import { getStorage, provideStorage } from '@angular/fire/storage';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HomeModule,
     AccountsModule,
+    TestModule,
     ToastrModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     // provideAnalytics(() => getAnalytics()),
@@ -50,6 +50,6 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
     // provideStorage(() => getStorage()),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

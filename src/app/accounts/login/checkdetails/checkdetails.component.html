@@ -1,8 +1,15 @@
-<p class="text-primary font-weight-medium">
-    Already have an account?<a
-        [routerLink]="['/accounts/data']"
-        class="text-primary font-weight-semibold"
-    >
-        Check details  
-    </a>
-</p>
+<div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-sm-6">
+            <p class="text-primary font-weight-medium">
+                Already have an account?<a
+                    [routerLink]="['/accounts/data']"
+                    class="text-primary font-weight-semibold"
+                >
+                    Check details  
+                </a>
+            </p>
+            <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+        </div>
+    </div>
+</div>

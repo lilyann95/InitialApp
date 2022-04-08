@@ -25,6 +25,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DataActionsComponent } from './data/partials/data-actions/data-actions.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DailogComponent,
     EditDetailsComponent,
     CheckDetailsComponent,
+    DataActionsComponent,
   ],
   imports: [
     CommonModule,
